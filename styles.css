@@ -1,0 +1,236 @@
+
+:root {
+  --pks-color-primary: #003366;
+  --pks-color-secondary: #FF8C00;
+  --pks-color-text: #1F2937;
+  --pks-color-bg: #F3F4F6;
+  --pks-color-white: #FFFFFF;
+  --pks-radius: 12px;
+  --pks-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --pks-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--pks-color-bg);
+  color: var(--pks-color-text);
+  font-size: 20px; /* Aumentado de 18px a 20px para legibilidad premium */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navegación */
+.pks-nav {
+  background: var(--pks-color-primary);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.pks-nav__logo {
+  font-weight: 900;
+  font-size: 1.8rem; /* Proporcionalmente mayor */
+  letter-spacing: -1px;
+  cursor: pointer;
+}
+
+.pks-nav__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.pks-nav__link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem; /* Aumentado */
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: var(--pks-transition);
+}
+
+.pks-nav__link:hover { opacity: 1; }
+
+/* Home Portal */
+.pks-home {
+  max-width: 1100px;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 0 1.5rem;
+}
+
+.pks-card-portal {
+  background: var(--pks-color-white);
+  padding: 4rem 2.5rem;
+  border-radius: var(--pks-radius);
+  text-align: center;
+  box-shadow: var(--pks-shadow-lg);
+  cursor: pointer;
+  transition: var(--pks-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.pks-card-portal h2 {
+  font-size: 2rem; /* Mayor impacto visual */
+  margin-bottom: 1.2rem;
+}
+
+.pks-card-portal p {
+  font-size: 1.2rem; /* Texto de card más legible */
+  line-height: 1.6;
+}
+
+.pks-card-portal:hover {
+  transform: translateY(-12px);
+  border-color: var(--pks-color-secondary);
+}
+
+.pks-card-portal i {
+  font-size: 4rem;
+  color: var(--pks-color-primary);
+  margin-bottom: 2.5rem;
+}
+
+/* Calculadora FastPay */
+.pks-calculator {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: white;
+  padding: 4rem 2.5rem;
+  border-radius: var(--pks-radius);
+  box-shadow: var(--pks-shadow-lg);
+}
+
+.pks-calc__label {
+  display: block;
+  font-weight: 800;
+  font-size: 1.3rem; /* Más claro */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--pks-color-primary);
+}
+
+.pks-calc__field {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 3rem; /* Input gigante para facilidad de uso */
+  border: none;
+  border-bottom: 5px solid var(--pks-color-primary);
+  color: var(--pks-color-primary);
+  font-weight: bold;
+  background-color: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.pks-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.pks-day-btn {
+  padding: 1.2rem 0.8rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--pks-transition);
+}
+
+.pks-day-btn strong {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.pks-day-btn span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.pks-result-box {
+  background: var(--pks-color-bg);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.pks-result-box h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.pks-result-box .amount {
+  font-size: 4rem; /* Importe muy destacado */
+  font-weight: 900;
+  color: var(--pks-color-primary);
+}
+
+/* Landing Consultoría */
+.pks-consult-hero {
+  background: linear-gradient(rgba(0,51,102,0.55), rgba(0,51,102,0.55)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 10rem 1.5rem;
+  text-align: center;
+}
+
+.pks-consult-hero h1 {
+  font-size: 4rem; /* Headline potente */
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.pks-consult-hero p {
+  font-size: 1.6rem; /* Subtexto muy legible */
+  max-width: 850px;
+  margin: 0 auto 4rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  font-weight: 500;
+}
+
+.pks-btn-primary {
+  background: var(--pks-color-secondary);
+  color: white;
+  padding: 1.6rem 4rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.3rem; /* Botón grande y accionable */
+  text-transform: uppercase;
+  display: inline-block;
+  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.4);
+  transition: var(--pks-transition);
+}
+
+.pks-btn-primary:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  body { font-size: 19px; } /* Ajuste ligero para móviles muy pequeños */
+  .pks-consult-hero { padding: 6rem 1.5rem; }
+  .pks-consult-hero h1 { font-size: 2.5rem; }
+  .pks-consult-hero p { font-size: 1.3rem; }
+  .pks-nav__links { display: none; }
+  .pks-nav { padding: 1.2rem; }
+  .pks-calc__field { font-size: 2.2rem; }
+  .pks-result-box .amount { font-size: 3rem; }
+}
