@@ -17,9 +17,50 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--pks-color-bg);
   color: var(--pks-color-text);
-  font-size: 20px; /* Aumentado de 18px a 20px para legibilidad premium */
+  font-size: 20px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Animaciones Biométricas */
+@keyframes pks-scan {
+  0% { top: 0%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes pks-pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.pks-biometric-scanner {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.pks-scan-line {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--pks-color-secondary);
+  box-shadow: 0 0 15px var(--pks-color-secondary);
+  z-index: 10;
+  animation: pks-scan 2s infinite ease-in-out;
+}
+
+.pks-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--pks-color-secondary);
+  border-radius: 50%;
+  animation: pks-pulse-ring 2s infinite;
 }
 
 /* Navegación */
@@ -37,7 +78,7 @@ body {
 
 .pks-nav__logo {
   font-weight: 900;
-  font-size: 1.8rem; /* Proporcionalmente mayor */
+  font-size: 1.8rem;
   letter-spacing: -1px;
   cursor: pointer;
 }
@@ -50,7 +91,7 @@ body {
 .pks-nav__link {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem; /* Aumentado */
+  font-size: 1.1rem;
   font-weight: 600;
   text-transform: uppercase;
   opacity: 0.8;
@@ -84,12 +125,12 @@ body {
 }
 
 .pks-card-portal h2 {
-  font-size: 2rem; /* Mayor impacto visual */
+  font-size: 2rem;
   margin-bottom: 1.2rem;
 }
 
 .pks-card-portal p {
-  font-size: 1.2rem; /* Texto de card más legible */
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -104,107 +145,6 @@ body {
   margin-bottom: 2.5rem;
 }
 
-/* Calculadora FastPay */
-.pks-calculator {
-  max-width: 600px;
-  margin: 3rem auto;
-  background: white;
-  padding: 4rem 2.5rem;
-  border-radius: var(--pks-radius);
-  box-shadow: var(--pks-shadow-lg);
-}
-
-.pks-calc__label {
-  display: block;
-  font-weight: 800;
-  font-size: 1.3rem; /* Más claro */
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  color: var(--pks-color-primary);
-}
-
-.pks-calc__field {
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 3rem; /* Input gigante para facilidad de uso */
-  border: none;
-  border-bottom: 5px solid var(--pks-color-primary);
-  color: var(--pks-color-primary);
-  font-weight: bold;
-  background-color: #f8fafc;
-  border-radius: 12px 12px 0 0;
-}
-
-.pks-days-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 1rem;
-  margin-bottom: 3.5rem;
-}
-
-.pks-day-btn {
-  padding: 1.2rem 0.8rem;
-  border: 2px solid #e2e8f0;
-  background: white;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: var(--pks-transition);
-}
-
-.pks-day-btn strong {
-  font-size: 1.5rem;
-  display: block;
-}
-
-.pks-day-btn span {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.pks-result-box {
-  background: var(--pks-color-bg);
-  padding: 2.5rem;
-  border-radius: 16px;
-  text-align: center;
-}
-
-.pks-result-box h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.pks-result-box .amount {
-  font-size: 4rem; /* Importe muy destacado */
-  font-weight: 900;
-  color: var(--pks-color-primary);
-}
-
-/* Landing Consultoría */
-.pks-consult-hero {
-  background: linear-gradient(rgba(0,51,102,0.55), rgba(0,51,102,0.55)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 10rem 1.5rem;
-  text-align: center;
-}
-
-.pks-consult-hero h1 {
-  font-size: 4rem; /* Headline potente */
-  max-width: 1000px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.1;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-.pks-consult-hero p {
-  font-size: 1.6rem; /* Subtexto muy legible */
-  max-width: 850px;
-  margin: 0 auto 4rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  font-weight: 500;
-}
-
 .pks-btn-primary {
   background: var(--pks-color-secondary);
   color: white;
@@ -212,11 +152,13 @@ body {
   border-radius: 100px;
   text-decoration: none;
   font-weight: 800;
-  font-size: 1.3rem; /* Botón grande y accionable */
+  font-size: 1.3rem;
   text-transform: uppercase;
   display: inline-block;
   box-shadow: 0 15px 35px rgba(255, 140, 0, 0.4);
   transition: var(--pks-transition);
+  border: none;
+  cursor: pointer;
 }
 
 .pks-btn-primary:hover {
@@ -225,12 +167,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  body { font-size: 19px; } /* Ajuste ligero para móviles muy pequeños */
-  .pks-consult-hero { padding: 6rem 1.5rem; }
-  .pks-consult-hero h1 { font-size: 2.5rem; }
-  .pks-consult-hero p { font-size: 1.3rem; }
+  body { font-size: 19px; }
   .pks-nav__links { display: none; }
-  .pks-nav { padding: 1.2rem; }
-  .pks-calc__field { font-size: 2.2rem; }
-  .pks-result-box .amount { font-size: 3rem; }
 }

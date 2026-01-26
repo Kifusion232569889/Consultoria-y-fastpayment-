@@ -4,10 +4,16 @@ import Home from './components/Home';
 import FastPayment from './components/FastPayment';
 import Consultancy from './components/Consultancy';
 import Payments from './components/Payments';
+import Login from './components/Login';
 import './styles.css';
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'fastpay' | 'consultancy' | 'payments'>('home');
+
+  if (!isAuthenticated) {
+    return <Login onLogin={() => setIsAuthenticated(true)} />;
+  }
 
   const renderPage = () => {
     switch (currentPage) {
